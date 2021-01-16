@@ -1,0 +1,14 @@
+version: "3.3"
+services:
+  sickchill:
+    container_name: sickchill
+    image: sickchill/sickchill
+    restart: unless-stopped
+    ports:
+      - ${PORT}:8081
+    environment:
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${CONFIG_PATH}:/data
+      - ${DOWNLOADS_PATH}:/sickchill/downloads
+      - ${SHOWS_PATH}:/sickchill/shows
